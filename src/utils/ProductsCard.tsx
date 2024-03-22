@@ -1,6 +1,7 @@
 import { Box, Stack, Typography } from "@mui/material";
 import { CirclePlus } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const ProductsCard = ({ product }: any) => {
@@ -21,7 +22,13 @@ const ProductsCard = ({ product }: any) => {
           height={200}
           alt="Product Image"
         />
-        <p className={`${ product.discount ? "absolute top-0 right-0 p-1  text-[14px] text-center text-white bg-red-500  w-[40px] h-[30px] rounded-lg" : ""}`}>
+        <p
+          className={`${
+            product.discount
+              ? "absolute top-0 right-0 p-1  text-[14px] text-center text-white bg-red-500  w-[40px] h-[30px] rounded-lg"
+              : ""
+          }`}
+        >
           {`${product.discount ? product.discount : ""}`}
         </p>
       </Box>
@@ -46,7 +53,9 @@ const ProductsCard = ({ product }: any) => {
             </p>
           </Box>
           <Box>
-            <CirclePlus size={18} />
+            <Link href={`/flash-sale/${product.id}`}>
+              <CirclePlus size={18} />
+            </Link>
           </Box>
         </Stack>
       </Box>
