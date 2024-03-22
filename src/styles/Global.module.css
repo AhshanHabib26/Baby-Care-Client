@@ -1,0 +1,8 @@
+.mainContainer {
+  background: #D3959B; 
+  background: -webkit-linear-gradient(to bottom, #BFE6BA, #D3959B);  
+  background: linear-gradient(to bottom, #BFE6BA, #D3959B);
+  padding: 30px;
+  border-radius: 5px;
+  
+}

@@ -6,6 +6,8 @@ import Providers from "@/libs/providers/Providers";
 import Navbar from "@/Shared/Navbar";
 const inter = Inter({ subsets: ["latin"] });
 
+
+
 export const metadata: Metadata = {
   title: "Baby Care by Ahshan Habib",
   description: "Provides an Best Baby Care Services",
