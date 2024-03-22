@@ -5,7 +5,7 @@ import { Container } from "@mui/material";
 import React from "react";
 
 interface IParams {
-  fsId: string;
+  productId: string;
 }
 
 interface IProps {
@@ -13,7 +13,7 @@ interface IProps {
 }
 
 const FlashSaleDetailsPage: React.FC<IProps> = ({ params }) => {
-  const { fsId } = params;
+  const { productId } = params;
 
   return (
     <div className=" my-12 mb-96">

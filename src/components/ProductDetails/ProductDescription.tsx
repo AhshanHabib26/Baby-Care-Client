@@ -3,6 +3,8 @@
 import { Box, Stack, Tab, Tabs } from "@mui/material";
 import React, { useState } from "react";
 import PDescription from "./PDescription";
+import PSpecification from "./PSpecification";
+import PReviews from "./PReviews";
 
 const ProductDescription = () => {
   const [value, setValue] = useState(0);
@@ -20,7 +22,11 @@ const ProductDescription = () => {
           <Tab sx={{ color: "#fff" }} label="Reviews (0) " />
         </Tabs>
       </Box>
-      <Box>{value === 0 && <PDescription />}</Box>
+      <Box>
+        {value === 0 && <PDescription />}
+        {value === 1 && <PSpecification />}
+        {value === 2 && <PReviews />}
+      </Box>
     </Stack>
   );
 };

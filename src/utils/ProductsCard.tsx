@@ -53,7 +53,7 @@ const ProductsCard = ({ product }: any) => {
             </p>
           </Box>
           <Box>
-            <Link href={`/flash-sale/${product.id}`}>
+            <Link href={`/products/${product.id}`}>
               <CirclePlus size={18} />
             </Link>
           </Box>
