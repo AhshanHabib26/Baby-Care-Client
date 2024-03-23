@@ -10,17 +10,16 @@ import BootleSet from "../assets/images/BootleSet.jpg";
 import DiapersOne from "../assets/images/DaipersOne.jpg";
 import NasalAspirator from "../assets/images/NasalAspirator.jpg";
 import TeethingToys from "../assets/images/TeethingToys.jpg";
-import OrganicPure from "../assets/images/GoldOrganic.jpg";
-import FloorCleaner from "../assets/images/FloorCleaner.png";
-import GrowGold from "../assets/images/GrowGold.jpg";
 
 const productData = [
   {
     id: "1",
     title: "Baby Diapers Pack",
     price: "15.99",
+    flashSaleOffer: "12.99",
     ratings: "4.5",
     brand: "Pampers",
+    discount: "20%",
     category: "Diapers",
     image: DiapersOne,
     description:
@@ -30,10 +29,12 @@ const productData = [
     id: "2",
     title: "Baby Bottle Set",
     price: "19.99",
+    flashSaleOffer: "15.99",
     ratings: "4.7",
     brand: "Philips Avent",
+    discount: "15%",
     image: BootleSet,
-    category: "Accessories",
+    category: "Feeding",
     description:
       "This set includes everything you need for feeding your baby. Made with BPA-free materials and an anti-colic system, these bottles are gentle on your baby's delicate tummy.",
   },
@@ -41,10 +42,12 @@ const productData = [
     id: "3",
     title: "Baby Shampoo & Body Wash",
     price: "8.49",
+    flashSaleOffer: "6.99",
     ratings: "4.3",
     image: BabyWash,
     brand: "Johnson's Baby",
-    category: "Family Care",
+    discount: "25%",
+    category: "Bath & Skincare",
     description:
       "Johnson's Baby Shampoo & Body Wash is gentle on your baby's sensitive skin and eyes. With a tear-free formula, it cleanses and nourishes your baby's delicate skin without drying it out.",
   },
@@ -52,10 +55,12 @@ const productData = [
     id: "4",
     title: "Baby Wipes",
     price: "12.99",
+    flashSaleOffer: "9.99",
     ratings: "4.6",
     brand: "Huggies",
+    discount: "10%",
     image: BabyWipes,
-    category: "Diapers",
+    category: "Wipes",
     description:
       "Huggies Baby Wipes are thick, soft, and absorbent. They are fragrance-free, hypoallergenic, and dermatologically tested, making them safe for your baby's delicate skin.",
   },
@@ -63,10 +68,12 @@ const productData = [
     id: "5",
     title: "Baby Nasal Aspirator",
     price: "9.99",
+    flashSaleOffer: "7.99",
     ratings: "4.8",
     image: NasalAspirator,
     brand: "FridaBaby",
-    category: "Vitamins & Health",
+    discount: "30%",
+    category: "Health & Safety",
     description:
       "Clear your baby's stuffy nose quickly and effectively with the FridaBaby Nasal Aspirator. It's gentle, safe, and easy to use, providing instant relief for your little one.",
   },
@@ -78,7 +85,7 @@ const productData = [
     ratings: "4.4",
     brand: "Safety 1st",
     image: BabyNail,
-    category: "Accessories",
+    category: "Grooming",
     discount: "35%",
     description:
       "Trim your baby's nails safely and precisely with the Safety 1st Nail Clippers Set. Designed with curved cutting edges and a comfortable grip, it ensures a stress-free grooming experience.",
@@ -87,10 +94,12 @@ const productData = [
     id: "7",
     title: "Baby Teething Toys",
     price: "10.49",
+    flashSaleOffer: "8.49",
     ratings: "4.6",
     brand: "Nuby",
     image: TeethingToys,
-    category: "Toys",
+    discount: "18%",
+    category: "Teething",
     description:
       "Relieve your baby's teething discomfort with these colorful and textured teething toys from Nuby. Made from soft, BPA-free materials, they massage and soothe sore gums.",
   },
@@ -98,10 +107,12 @@ const productData = [
     id: "8",
     title: "Baby Sunscreen Lotion",
     price: "14.99",
+    flashSaleOffer: "11.99",
     ratings: "4.5",
     brand: "Coppertone",
     image: BabySunscreen,
-    category: "Vitamins & Health",
+    discount: "8%",
+    category: "Sun Protection",
     description:
       "Protect your baby's delicate skin from harmful UV rays with Coppertone Baby Sunscreen Lotion. Formulated with gentle, hypoallergenic ingredients, it provides broad-spectrum SPF 50 protection.",
   },
@@ -114,7 +125,7 @@ const productData = [
     brand: "Braun",
     discount: "11%",
     image: BabyThermometer,
-    category: "Family Care",
+    category: "Health & Safety",
     description:
       "Monitor your baby's temperature accurately and comfortably with the Braun Baby Thermometer. It offers precise readings in seconds, ensuring you can quickly detect any changes in your baby's health.",
   },
@@ -122,10 +133,12 @@ const productData = [
     id: "10",
     title: "Baby Carrier",
     price: "29.99",
+    flashSaleOffer: "24.99",
     ratings: "4.8",
     brand: "Ergobaby",
+    discount: "35%",
     image: BabyCarrier,
-    category: "Accessories",
+    category: "Travel & Gear",
     description:
       "Keep your baby close and secure while on the move with the Ergobaby Baby Carrier. Ergonomically designed with padded straps and lumbar support, it ensures both you and your baby stay comfortable.",
   },
@@ -138,7 +151,7 @@ const productData = [
     brand: "Aden + Anais",
     discount: "40%",
     image: BabySwaddle,
-    category: "Accessories",
+    category: "Bedding",
     description:
       "Wrap your baby in comfort and warmth with these soft and breathable swaddle blankets from Aden + Anais. Versatile and stylish, they are perfect for swaddling, nursing, and cuddling.",
   },
@@ -146,48 +159,17 @@ const productData = [
     id: "12",
     title: "Baby Monitor",
     price: "79.99",
+    flashSaleOffer: "69.99",
     ratings: "4.9",
+    discount: "15%",
     brand: "Infant Optics",
     image: BabyMonitor,
-    category: "Accessories",
-    description:
-      "Stay connected to your baby day and night with the Infant Optics Baby Monitor. Featuring a long-range transmission and a crystal-clear display, it provides peace of mind for parents.",
-  },
-  {
-    id: "13",
-    title: "Organic Pure Nutrition Apple Flavour ",
-    price: "38.99",
-    ratings: "4.9",
-    brand: "Gold Organic",
-    image: OrganicPure,
-    category: "Nutritions",
-    description:
-      "Stay connected to your baby day and night with the Infant Optics Baby Monitor. Featuring a long-range transmission and a crystal-clear display, it provides peace of mind for parents.",
-  },
-  {
-    id: "14",
-    title: "Natural Euerclean Floor Cleaner",
-    price: "38.99",
-    ratings: "4.9",
-    brand: "Safety 1st",
-    image: FloorCleaner,
-    category: "Family Care",
-    description:
-      "Stay connected to your baby day and night with the Infant Optics Baby Monitor. Featuring a long-range transmission and a crystal-clear display, it provides peace of mind for parents.",
-  },
-  {
-    id: "15",
-    title: "Quick Grow Gold IQ 2 Milk",
-    price: "48.99",
-    ratings: "4.9",
-    brand: "Nutrity",
-    image: GrowGold,
-    category: "Milk Powders",
+    category: "Safety",
     description:
       "Stay connected to your baby day and night with the Infant Optics Baby Monitor. Featuring a long-range transmission and a crystal-clear display, it provides peace of mind for parents.",
   },
 ];
 
-export const getAllProductData = () => {
+export const getAllFlashProductData = () => {
   return productData;
 };

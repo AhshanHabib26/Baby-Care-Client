@@ -44,14 +44,22 @@ const ProductsCard = ({ product }: any) => {
           alignItems="center"
           justifyContent="space-between"
         >
-          <Box display="flex" alignItems="center">
-            <p className="text-md font-semibold text-[#1949C9]">
-              ${product.flashSaleOffer}
-            </p>
-            <p className="text-md font-semibold line-through ml-2 text-gray-600">
-              ${product.price}
-            </p>
-          </Box>
+          {product.flashSaleOffer ? (
+            <Box display="flex" alignItems="center">
+              <p className="text-md font-semibold text-[#1949C9]">
+                ${product.flashSaleOffer}
+              </p>
+              <p className="text-md font-semibold line-through ml-2 text-gray-600">
+                ${product.price}
+              </p>
+            </Box>
+          ) : (
+            <Box>
+              <p className="text-md font-semibold  text-[#1949C9]">
+                ${product.price}
+              </p>
+            </Box>
+          )}
           <Box>
             <Link href={`/products/${product.id}`}>
               <CirclePlus size={18} />

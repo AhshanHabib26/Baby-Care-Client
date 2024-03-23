@@ -1,10 +1,10 @@
-import { getAllProductData } from "@/data/ProductData";
+import { getAllFlashProductData } from "@/data/FlashProductData";
 import ProductsCard from "@/utils/ProductsCard";
 import { Container } from "@mui/material";
 import React from "react";
 
 const FlashSalePage = () => {
-  const products = getAllProductData();
+  const products = getAllFlashProductData()
 
   return (
     <Container>

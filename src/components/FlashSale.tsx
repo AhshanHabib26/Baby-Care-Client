@@ -1,4 +1,4 @@
-import { getAllProductData } from "@/data/ProductData";
+import { getAllFlashProductData } from "@/data/FlashProductData";
 import ProductsCard from "@/utils/ProductsCard";
 import { Button, Container, Stack, Typography } from "@mui/material";
 import { ChevronRight } from "lucide-react";
@@ -6,7 +6,7 @@ import Link from "next/link";
 import React from "react";
 
 const FlashSale = () => {
-  const products = getAllProductData();
+  const products = getAllFlashProductData();
 
   return (
     <Container>
@@ -18,7 +18,9 @@ const FlashSale = () => {
         marginTop="60px"
         marginBottom="40px"
       >
-        <Typography sx={{ fontSize: "22px", fontWeight: "bold" }}>
+        <Typography
+          sx={{ fontSize: "22px", fontWeight: "bold", color: "#1949C9" }}
+        >
           Flash Sale
         </Typography>
         <Button component={Link} href="/flash-sale">

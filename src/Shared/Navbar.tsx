@@ -59,9 +59,6 @@ const Navbar = () => {
                   <Typography component={Link} href="/">
                     Home
                   </Typography>
-                  <Typography component={Link} href="/categories">
-                    Categories
-                  </Typography>
                   <Typography component={Link} href="/products">
                     Products
                   </Typography>
@@ -117,12 +114,6 @@ const Navbar = () => {
                         <Home size={20} className="mr-1" />
                         <Typography component={Link} href="/">
                           Home
-                        </Typography>
-                      </Box>
-                      <Box display="flex">
-                        <Layers3 size={20} className="mr-1" />
-                        <Typography component={Link} href="/categories">
-                          Categories
                         </Typography>
                       </Box>
                       <Box display="flex">
