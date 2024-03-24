@@ -23,6 +23,7 @@ import {
   Heart,
   Home,
   Layers3,
+  LayoutDashboard,
   ShoppingBasket,
   ShoppingCart,
   User,
@@ -70,6 +71,9 @@ const Navbar = () => {
                   </Typography>
                   <Typography component={Link} href="/contact-us">
                     Contact Us
+                  </Typography>
+                  <Typography component={Link} href="/dashboard/all-products">
+                    Dashboard
                   </Typography>
                   <Divider
                     orientation="vertical"
@@ -138,6 +142,15 @@ const Navbar = () => {
                         <Headset size={20} className="mr-1" />
                         <Typography component={Link} href="/contact-us">
                           Contact Us
+                        </Typography>
+                      </Box>
+                      <Box display="flex">
+                        <LayoutDashboard size={20} className="mr-1" />
+                        <Typography
+                          component={Link}
+                          href="/dashboard/all-products"
+                        >
+                          Dashboard
                         </Typography>
                       </Box>
                     </Box>
