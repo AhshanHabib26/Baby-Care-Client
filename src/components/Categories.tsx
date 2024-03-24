@@ -11,7 +11,7 @@ const Categories = () => {
     <div className="my-20">
       <Container>
         <div className="text-center">
-          <h1 className="text-2xl font-semibold text-[#1949C9]">
+          <h1 className="text-2xl font-semibold text-[#0C1734]">
             Top Categories
           </h1>
           <p className=" text-lg font-light">

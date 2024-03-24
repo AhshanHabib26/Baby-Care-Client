@@ -33,7 +33,7 @@ const BannerSlider = () => {
                     <div>
                       <p className="text-4xl lg:text-5xl max-w-[14ch] font-bold">{banner.title}</p>
                       <div className="flex items-center my-3 lg:my-4">
-                        <p className="text-[#1949C9] text-3xl lg:text-4xl font-semibold">${banner.currPrice}</p>
+                        <p className="text-[#0C1734] text-3xl lg:text-4xl font-semibold">${banner.currPrice}</p>
                         <p className=" text-xl lg:text-2xl font-light ml-3  line-through">${banner.prevPrice}</p>
                       </div>
                       <div>

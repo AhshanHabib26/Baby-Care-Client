@@ -7,12 +7,12 @@ const AllProducts = () => {
   return (
     <div className="ml-0 lg:ml-4">
       <div className=" flex items-center justify-between mb-5">
-        <p className=" text-xl font-semibold text-[#1949C9]">
+        <p className=" text-xl font-semibold text-[#0C1734]">
           Our Collection of Products
         </p>
         <p className="text-lg font-semibold text-gray-600">
           Showing <span className="text-red-500">1-12</span> of{" "}
-          <span className="text-[#1949C9]">15</span> Items
+          <span className="text-[#0C1734]">15</span> Items
         </p>
       </div>
       <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mx-auto">

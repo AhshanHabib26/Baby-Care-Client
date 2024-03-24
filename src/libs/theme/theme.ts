@@ -16,7 +16,7 @@ export const theme = createTheme({
       },
       styleOverrides: {
         root: {
-          backgroundColor: "#1949C9",
+          backgroundColor: "#0C1734",
           color: "#fff",
         },
       },

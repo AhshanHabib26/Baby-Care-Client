@@ -15,7 +15,7 @@ const ProductDescription = () => {
 
   return (
     <Stack>
-      <Box sx={{ width: "100%", bgcolor: "#1949C9", borderRadius: "5px" }}>
+      <Box sx={{ width: "100%", bgcolor: "#0C1734", borderRadius: "5px" }}>
         <Tabs value={value} onChange={handleChange} centered>
           <Tab sx={{ color: "#fff" }} label="Description" />
           <Tab sx={{ color: "#fff" }} label="Specification" />

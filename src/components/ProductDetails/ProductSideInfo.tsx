@@ -18,14 +18,14 @@ const data = {
 const ProductSideInfo = () => {
   return (
     <Stack>
-      <span className="text-md font-regular text-blue-500 inline-block">
+      <span className="text-md font-regular text-[#0C1734] inline-block">
         {data.brand}
       </span>
       <Box margin="10px 0">
         <h1 className=" text-2xl font-semibold">{data.title}</h1>
       </Box>
       <Box display="flex" alignItems="center">
-        <p className="text-2xl font-semibold text-[#1949C9]">
+        <p className="text-2xl font-semibold text-[#0C1734]">
           ${data.flashSaleOffer}
         </p>
         <p className=" text-xl font-medium text-gray-600 line-through ml-3">
@@ -77,7 +77,7 @@ const ProductSideInfo = () => {
             sx={{
               fontSize: "15px",
               marginLeft: "5px",
-              "&:hover": { color: "#1949C9" },
+              "&:hover": { color: "#0C1734" },
             }}
           >
             Add to wishlist
@@ -91,7 +91,7 @@ const ProductSideInfo = () => {
             sx={{
               fontSize: "15px",
               marginLeft: "5px",
-              "&:hover": { color: "#1949C9" },
+              "&:hover": { color: "#0C1734" },
             }}
           >
             Add to compare
@@ -105,7 +105,7 @@ const ProductSideInfo = () => {
             sx={{
               fontSize: "15px",
               marginLeft: "5px",
-              "&:hover": { color: "#1949C9" },
+              "&:hover": { color: "#0C1734" },
             }}
           >
             Ask about product
@@ -117,7 +117,7 @@ const ProductSideInfo = () => {
         <Typography
           sx={{ fontSize: "18px", fontWeight: "500", color: "#363636" }}
         >
-          Category: <span className="text-[#1949C9]">{data.category}</span>
+          Category: <span className="text-[#0C1734]">{data.category}</span>
         </Typography>
       </Box>
       <SocialIcons />

@@ -19,7 +19,7 @@ const FlashSale = () => {
         marginBottom="40px"
       >
         <Typography
-          sx={{ fontSize: "22px", fontWeight: "bold", color: "#1949C9" }}
+          sx={{ fontSize: "22px", fontWeight: "bold", color: "#0C1734" }}
         >
           Flash Sale
         </Typography>

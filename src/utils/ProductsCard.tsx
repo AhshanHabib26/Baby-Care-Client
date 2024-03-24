@@ -46,7 +46,7 @@ const ProductsCard = ({ product }: any) => {
         >
           {product.flashSaleOffer ? (
             <Box display="flex" alignItems="center">
-              <p className="text-md font-semibold text-[#1949C9]">
+              <p className="text-md font-semibold text-[#0C1734]">
                 ${product.flashSaleOffer}
               </p>
               <p className="text-md font-semibold line-through ml-2 text-gray-600">
@@ -55,7 +55,7 @@ const ProductsCard = ({ product }: any) => {
             </Box>
           ) : (
             <Box>
-              <p className="text-md font-semibold  text-[#1949C9]">
+              <p className="text-md font-semibold  text-[#0C1734]">
                 ${product.price}
               </p>
             </Box>

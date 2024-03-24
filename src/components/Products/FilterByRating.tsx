@@ -24,7 +24,7 @@ const FilterByRating = () => {
                   sx={{
                     color: "#363636",
                     "&.Mui-checked": {
-                      color: "#1949C9",
+                      color: "#0C1734",
                     },
                   }}
                 />

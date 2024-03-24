@@ -62,7 +62,7 @@ const PDescription = () => {
       </div>
       <div className="">
         <div className="text-center">
-          <h1 className=" text-[#1949C9] text-lg font-light italic">
+          <h1 className=" text-[#0C1734] text-lg font-light italic">
             Keep your baby comfortable and dry with these high-quality diapers
             from Pampers. Designed with soft materials and excellent absorption,
             ensuring a peaceful sleep for your little one.

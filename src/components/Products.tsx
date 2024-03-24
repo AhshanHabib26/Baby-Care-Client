@@ -17,7 +17,7 @@ const Products = () => {
           alignItems="center"
           justifyContent="space-between"
         >
-          <h1 className="text-2xl font-semibold text-[#1949C9]">
+          <h1 className="text-2xl font-semibold text-[#0C1734]">
             Most Popular Products
           </h1>
           <Button component={Link} href="/products" size="large">

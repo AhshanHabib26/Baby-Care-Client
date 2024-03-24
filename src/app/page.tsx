@@ -1,16 +1,18 @@
 import Banner from "@/components/Banner";
 import Categories from "@/components/Categories";
 import FlashSale from "@/components/FlashSale";
+import Footer from "@/components/Footer";
 import Products from "@/components/Products";
 import React from "react";
 
 const HomePage = () => {
   return (
-    <div className=" mb-96">
+    <div>
       <Banner />
       <FlashSale />
       <Categories />
-      <Products/>
+      <Products />
+      <Footer/>
     </div>
   );
 };
