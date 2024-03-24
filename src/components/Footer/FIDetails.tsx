@@ -8,11 +8,11 @@ const FIDetails = () => {
   return (
     <Stack color="#fff">
       <Typography
-        sx={{ fontSize: "20px", fontWeight: "800", marginBottom: "15px" }}
+        sx={{ fontSize: "20px", fontWeight: "700", marginBottom: "15px" }}
       >
         Get in Touch
       </Typography>
-      <Box display="flex" alignItems="center" sx={{ marginBottom: "8px" }}>
+      <Box display="flex" alignItems="center" sx={{ marginBottom: "8px" }} >
         <PhoneCall size={20} className="mr-2" />
         <Link href="tel:+8801646418365">+8801646418365</Link>
       </Box>
