@@ -18,8 +18,8 @@ const Categories = () => {
             Discover top baby care essentials for every stage of parenthood.
           </p>
         </div>
-        <div className=" grid grid-cols-2 lg:grid-cols-4 gap-5 max-w-3xl mx-auto mt-5">
-          {categories.map((category: any) => (
+        <div className=" grid grid-cols-2 lg:grid-cols-3 gap-5 max-w-3xl mx-auto mt-8">
+          {categories.slice(0, 6).map((category: any) => (
             <CategoriesCard category={category} key={category.id} />
           ))}
         </div>
