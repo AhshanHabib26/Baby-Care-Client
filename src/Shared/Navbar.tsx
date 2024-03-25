@@ -3,17 +3,14 @@
 import {
   Badge,
   Box,
-  Button,
   Container,
   Divider,
   Drawer,
-  Menu,
-  MenuItem,
   Stack,
   Typography,
 } from "@mui/material";
-import React, { useState } from "react";
-import logoImg from "../assets/icons/Logo.png";
+import React from "react";
+import logoImg from "../assets/icons/logo.png";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -22,7 +19,6 @@ import {
   Headset,
   Heart,
   Home,
-  Layers3,
   LayoutDashboard,
   ShoppingBasket,
   ShoppingCart,
