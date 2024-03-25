@@ -7,7 +7,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
     <div>
       <div className="grid grid-cols-1 lg:grid-cols-11">
         <div className="lg:col-span-2 hidden lg:block">
-          <div className="w-full bg-[#0C1734] h-screen p-4">
+          <div className="w-full bg-[#0C1734] h-full p-4">
             <SideNavbar />
           </div>
         </div>

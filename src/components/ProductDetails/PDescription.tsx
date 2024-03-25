@@ -11,8 +11,14 @@ import {
   Sprout,
   TreePalm,
 } from "lucide-react";
+import { IProduct } from "@/types/type.global";
 
-const PDescription = () => {
+type TProductProps = {
+  product: IProduct;
+};
+
+
+const PDescription: React.FC<TProductProps> = ({ product }) => {
   return (
     <div className="mt-8">
       <div className="text-center">
@@ -27,7 +33,7 @@ const PDescription = () => {
         <div>
           <Image
             className="w-full h-[400px] object-cover"
-            src={ImgOne}
+            src={product.image}
             width={500}
             height={500}
             alt="Diapers Image"
@@ -63,9 +69,7 @@ const PDescription = () => {
       <div className="">
         <div className="text-center">
           <h1 className=" text-[#0C1734] text-lg font-light italic">
-            Keep your baby comfortable and dry with these high-quality diapers
-            from Pampers. Designed with soft materials and excellent absorption,
-            ensuring a peaceful sleep for your little one.
+            {product.description}
           </h1>
         </div>
 

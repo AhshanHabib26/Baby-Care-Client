@@ -61,7 +61,7 @@ const ProductsCard = ({ product }: any) => {
             </Box>
           )}
           <Box>
-            <Link href={`/products/${product.id}`}>
+            <Link href={`/products/${product._id}`}>
               <CirclePlus size={18} />
             </Link>
           </Box>

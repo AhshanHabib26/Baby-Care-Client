@@ -5,8 +5,14 @@ import React, { useState } from "react";
 import PDescription from "./PDescription";
 import PSpecification from "./PSpecification";
 import PReviews from "./PReviews";
+import { IProduct } from "@/types/type.global";
 
-const ProductDescription = () => {
+type TProductProps = {
+  product: IProduct;
+};
+
+
+const ProductDescription: React.FC<TProductProps> = ({product}) => {
   const [value, setValue] = useState(0);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
@@ -23,7 +29,7 @@ const ProductDescription = () => {
         </Tabs>
       </Box>
       <Box>
-        {value === 0 && <PDescription />}
+        {value === 0 && <PDescription product={product} />}
         {value === 1 && <PSpecification />}
         {value === 2 && <PReviews />}
       </Box>

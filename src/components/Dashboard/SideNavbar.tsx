@@ -6,7 +6,7 @@ import Link from "next/link";
 
 const SideNavbar = () => {
   return (
-    <div className=" text-white">
+    <div className=" text-white min-h-screen">
       <div className="flex items-center">
         <Image src={logoImg} width={30} height={30} alt="Website Logo" />
         <h1 className="text-lg font-semibold ml-2">Baby Care</h1>

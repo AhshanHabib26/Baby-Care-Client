@@ -1,40 +1,45 @@
 import SocialIcons from "@/Shared/SocialIons";
+import { IProduct } from "@/types/type.global";
 import { Box, Button, Stack, Typography } from "@mui/material";
 import { Cable, Heart, Mail, Minus, Plus } from "lucide-react";
 import Link from "next/link";
 
-const data = {
-  title: "Baby Diapers Pack",
-  price: "15.99",
-  flashSaleOffer: "12.99",
-  ratings: "4.5",
-  brand: "Pampers",
-  discount: "20%",
-  category: "Diapers",
-  description:
-    "Keep your baby comfortable and dry with these high-quality diapers from Pampers. Designed with soft materials and excellent absorption, ensuring a peaceful sleep for your little one.",
+type TProductProps = {
+  product: IProduct;
 };
 
-const ProductSideInfo = () => {
+const ProductSideInfo: React.FC<TProductProps> = ({ product }) => {
   return (
     <Stack>
       <span className="text-md font-regular text-[#0C1734] inline-block">
-        {data.brand}
+        {product.brand}
       </span>
       <Box margin="10px 0">
-        <h1 className=" text-2xl font-semibold">{data.title}</h1>
+        <h1 className=" text-2xl font-semibold">{product.title}</h1>
       </Box>
-      <Box display="flex" alignItems="center">
-        <p className="text-2xl font-semibold text-[#0C1734]">
-          ${data.flashSaleOffer}
-        </p>
-        <p className=" text-xl font-medium text-gray-600 line-through ml-3">
-          ${data.price}
-        </p>
-      </Box>
-      <Box display="flex" alignItems="center" margin="10px 0">
+      {product.flashSale ? (
+        <Box display="flex" alignItems="center">
+          <p className="text-2xl font-semibold text-[#0C1734]">
+            ${product.flashSaleOffer}
+          </p>
+          <p className=" text-xl font-medium text-gray-600 line-through ml-3">
+            ${product.price}
+          </p>
+        </Box>
+      ) : (
+        <Box>
+          <p className=" text-xl font-medium text-[#0C1734]">
+            ${product.price}
+          </p>
+        </Box>
+      )}
+      <Box display="flex" alignItems="center" marginTop="10px">
         <p className="text-lg font-regular mr-2">Product Status:</p>
         <p className="text-md font-medium text-red-500">In stock</p>
+      </Box>
+      <Box display="flex" alignItems="center" margin="2px 0">
+        <p className="text-lg font-regular mr-2">Product Ratings:</p>
+        <p className="text-md font-medium text-red-500">{product.ratings}</p>
       </Box>
       <Stack
         sx={{
@@ -117,7 +122,7 @@ const ProductSideInfo = () => {
         <Typography
           sx={{ fontSize: "18px", fontWeight: "500", color: "#363636" }}
         >
-          Category: <span className="text-[#0C1734]">{data.category}</span>
+          Category: <span className="text-[#0C1734]">{product.category}</span>
         </Typography>
       </Box>
       <SocialIcons />

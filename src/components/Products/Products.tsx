@@ -1,9 +1,18 @@
-import { getAllProductData } from "@/data/ProductData";
+
+import { IProduct } from "@/types/type.global";
 import ProductsCard from "@/utils/ProductsCard";
 import React from "react";
 
-const AllProducts = () => {
-  const products = getAllProductData();
+const AllProducts = async () => {
+  const res = await fetch(
+    "https://baby-care-server-azure.vercel.app/api/v1/products",
+    {
+      cache: "no-cache",
+    }
+  );
+
+  const data = await res.json();
+
   return (
     <div className="ml-0 lg:ml-4">
       <div className=" flex items-center justify-between mb-5">
@@ -16,8 +25,8 @@ const AllProducts = () => {
         </p>
       </div>
       <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mx-auto">
-        {products.map((product: any) => (
-          <ProductsCard product={product} key={product.id} />
+        {data?.data?.map((product: IProduct) => (
+          <ProductsCard product={product} key={product._id} />
         ))}
       </div>
     </div>
