@@ -37,7 +37,7 @@ const BannerSlider = () => {
                         <p className=" text-xl lg:text-2xl font-light ml-3  line-through">${banner.prevPrice}</p>
                       </div>
                       <div>
-                        <Button component={Link} href="/" size="large">Shop Now</Button>
+                        <Button component={Link} href="/products" size="large">Shop Now</Button>
                       </div>
                     </div>
                     <div className=" relative shrink-0 my-10 lg:my-0">

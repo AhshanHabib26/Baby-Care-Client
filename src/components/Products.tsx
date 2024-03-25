@@ -26,11 +26,11 @@ const Products = async () => {
           alignItems="center"
           justifyContent="space-between"
         >
-          <h1 className="text-2xl font-semibold text-[#0C1734]">
-            Most Popular Products
+          <h1 className="text-xl lg:text-2xl font-semibold text-[#0C1734]">
+            Popular Products
           </h1>
-          <Button component={Link} href="/products" size="large">
-            View All <ChevronRight size={20} />
+          <Button component={Link} href="/products" size="large" sx={{ fontSize: "14px"}}>
+            View All <ChevronRight size={18} />
           </Button>
         </Stack>
         <div className=" grid grid-cols-2 lg:grid-cols-3 gap-5 mx-auto mt-10">
