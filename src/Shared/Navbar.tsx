@@ -69,7 +69,7 @@ const Navbar = () => {
                   <Typography component={Link} href="/contact-us">
                     Contact Us
                   </Typography>
-                  <Typography component={Link} href="/dashboard/all-products">
+                  <Typography component={Link} href="/dashboard">
                     Dashboard
                   </Typography>
                   <Divider
@@ -155,10 +155,7 @@ const Navbar = () => {
                       </Box>
                       <Box display="flex">
                         <LayoutDashboard size={20} className="mr-1" />
-                        <Typography
-                          component={Link}
-                          href="/dashboard/all-products"
-                        >
+                        <Typography component={Link} href="/dashboard">
                           Dashboard
                         </Typography>
                       </Box>
