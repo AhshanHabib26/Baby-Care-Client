@@ -20,6 +20,7 @@ import {
   Heart,
   Home,
   LayoutDashboard,
+  LogIn,
   ShoppingBasket,
   ShoppingCart,
   User,
@@ -83,11 +84,23 @@ const Navbar = () => {
                     alignItems="center"
                     gap={2}
                   >
-                    <UserRound className=" cursor-pointer" size={25} />
-                    <Badge badgeContent={0} color="primary" showZero>
+                    <Box component={Link} href="/login">
+                      <LogIn className=" cursor-pointer" size={25} />
+                    </Box>
+                    <Badge
+                      badgeContent={0}
+                      color="primary"
+                      sx={{ userSelect: "none" }}
+                      showZero
+                    >
                       <Heart className=" cursor-pointer " size={25} />
                     </Badge>
-                    <Badge badgeContent={0} color="primary" showZero>
+                    <Badge
+                      badgeContent={0}
+                      color="primary"
+                      sx={{ userSelect: "none" }}
+                      showZero
+                    >
                       <ShoppingCart className=" cursor-pointer" size={25} />
                     </Badge>
                   </Stack>
@@ -166,11 +179,23 @@ const Navbar = () => {
                       alignItems="center"
                       gap={2}
                     >
-                      <UserRound className=" cursor-pointer" size={25} />
-                      <Badge badgeContent={0} color="info" showZero>
+                      <Box component={Link} href="/login">
+                        <LogIn className=" cursor-pointer" size={25} />
+                      </Box>
+                      <Badge
+                        badgeContent={0}
+                        color="info"
+                        sx={{ userSelect: "none" }}
+                        showZero
+                      >
                         <Heart className=" cursor-pointer " size={25} />
                       </Badge>
-                      <Badge badgeContent={0} color="info" showZero>
+                      <Badge
+                        badgeContent={0}
+                        color="info"
+                        sx={{ userSelect: "none" }}
+                        showZero
+                      >
                         <ShoppingCart className=" cursor-pointer" size={25} />
                       </Badge>
                     </Stack>

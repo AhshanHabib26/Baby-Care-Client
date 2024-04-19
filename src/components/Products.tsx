@@ -33,8 +33,8 @@ const Products = async () => {
             View All <ChevronRight size={18} />
           </Button>
         </Stack>
-        <div className=" grid grid-cols-2 lg:grid-cols-3 gap-5 mx-auto mt-10">
-          {data?.data?.slice(0, 6).map((product: IProduct) => (
+        <div className=" grid grid-cols-2 lg:grid-cols-4 gap-5 mx-auto mt-10">
+          {data?.data?.slice(0, 8).map((product: IProduct) => (
             <ProductsCard product={product} key={product._id} />
           ))}
         </div>
