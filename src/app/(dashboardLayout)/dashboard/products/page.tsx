@@ -1,4 +1,6 @@
 import {
+  Box,
+  Stack,
   Table,
   TableBody,
   TableCell,
@@ -9,6 +11,9 @@ import {
 import React from "react";
 import Paper from "@mui/material/Paper";
 import Image from "next/image";
+import EditNoteIcon from "@mui/icons-material/EditNote";
+import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
+import Link from "next/link";
 
 interface IProduct {
   _id: string;
@@ -42,8 +47,8 @@ const AllProducts = async () => {
                 <TableCell>SL No</TableCell>
                 <TableCell>Items</TableCell>
                 <TableCell>Brand</TableCell>
-                <TableCell>Product ID</TableCell>
                 <TableCell>Price</TableCell>
+                <TableCell>Action</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -68,8 +73,29 @@ const AllProducts = async () => {
                     </div>
                   </TableCell>
                   <TableCell>{item.brand}</TableCell>
-                  <TableCell>{item._id}</TableCell>
                   <TableCell>${item.price}</TableCell>
+                  <TableCell>
+                    <Stack
+                      sx={{
+                        display: "flex",
+                        flexDirection: "row",
+                        alignItems: "center",
+                        gap: "5px"
+                      }}
+                    >
+                      <Box
+                        component={Link}
+                        href={`/dashboard/products/${item._id}`}
+                      >
+                        <EditNoteIcon sx={{ fontSize: 25 }} />
+                      </Box>
+                      <Box>
+                        <DeleteForeverIcon
+                          sx={{ fontSize: 25, color: "#FE4444" }}
+                        />
+                      </Box>
+                    </Stack>
+                  </TableCell>
                 </TableRow>
               ))}
             </TableBody>

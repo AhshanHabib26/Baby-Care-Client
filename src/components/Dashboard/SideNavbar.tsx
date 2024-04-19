@@ -45,6 +45,8 @@ const SideNavbar = () => {
   return (
     <Box>
       <Box
+        component={Link}
+        href="/"
         sx={{
           display: "flex",
           alignItems: "center",
