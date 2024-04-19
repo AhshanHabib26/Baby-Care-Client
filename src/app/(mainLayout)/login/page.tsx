@@ -133,7 +133,7 @@ const LoginPage = () => {
               fullWidth={true}
               type="submit"
             >
-              Register
+              Login
             </Button>
           </BCFormProvider>
         </Box>
