@@ -1,16 +1,17 @@
 "use client";
 
-import {
-  Box,
-  Button,
-  Divider,
-  Stack,
-  Typography,
-} from "@mui/material";
+import { Box, Button, Divider, Stack, Typography } from "@mui/material";
+import Link from "next/link";
 
 const CartTotals = () => {
   return (
-    <Box sx={{ border: "1px dashed #c1c1c1", padding: "15px", borderRadius: "5px" }}>
+    <Box
+      sx={{
+        border: "1px dashed #c1c1c1",
+        padding: "15px",
+        borderRadius: "5px",
+      }}
+    >
       <Typography sx={{ fontSize: "22px", fontWeight: "600" }}>
         Cart Totals
       </Typography>
@@ -58,6 +59,8 @@ const CartTotals = () => {
         </Typography>
       </Stack>
       <Box
+        component={Link}
+        href="/checkout"
         sx={{ display: "flex", justifyContent: "center", marginTop: "20px" }}
       >
         <Button
