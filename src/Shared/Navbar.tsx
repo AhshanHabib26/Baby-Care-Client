@@ -101,7 +101,10 @@ const Navbar = () => {
                       sx={{ userSelect: "none" }}
                       showZero
                     >
-                      <ShoppingCart className=" cursor-pointer" size={25} />
+                      <Box component={Link} href="/cart">
+                        {" "}
+                        <ShoppingCart className=" cursor-pointer" size={25} />
+                      </Box>
                     </Badge>
                   </Stack>
                 </div>
@@ -193,7 +196,10 @@ const Navbar = () => {
                         sx={{ userSelect: "none" }}
                         showZero
                       >
-                        <ShoppingCart className=" cursor-pointer" size={25} />
+                        <Box component={Link} href="/cart">
+                          {" "}
+                          <ShoppingCart className=" cursor-pointer" size={25} />
+                        </Box>
                       </Badge>
                     </Stack>
                   </Drawer>

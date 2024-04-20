@@ -48,7 +48,7 @@ const LoginPage = () => {
             Login to Your Account
           </Typography>
           <Typography textAlign="center" fontSize="16px">
-            Don't have an account?
+            Don&apos;t have an account?
             <Box
               component={Link}
               color="#EF4444"
