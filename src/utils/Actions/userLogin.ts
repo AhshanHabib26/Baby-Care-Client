@@ -1,7 +1,7 @@
 "use server";
 
 export const userLogin = async (data: any) => {
-  const res = await fetch("http://localhost:5000/api/v1/auth/login", {
+  const res = await fetch("https://baby-care-server-azure.vercel.app/api/v1/auth/login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

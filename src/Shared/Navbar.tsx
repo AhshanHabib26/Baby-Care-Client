@@ -3,6 +3,7 @@
 import {
   Badge,
   Box,
+  Button,
   Container,
   Divider,
   Drawer,
@@ -24,12 +25,14 @@ import {
   ShoppingBasket,
   ShoppingCart,
   User,
-  UserRound,
 } from "lucide-react";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { logoutUser, useCureentToken } from "@/redux/features/auth/authSlice";
 
 const Navbar = () => {
   const [open, setOpen] = React.useState(false);
-
+  const token = useAppSelector(useCureentToken);
+  const dispatch = useAppDispatch();
   const toggleDrawer = (newOpen: boolean) => () => {
     setOpen(newOpen);
   };
@@ -69,9 +72,11 @@ const Navbar = () => {
                   <Typography component={Link} href="/contact-us">
                     Contact Us
                   </Typography>
-                  <Typography component={Link} href="/dashboard">
-                    Dashboard
-                  </Typography>
+                  {token && (
+                    <Typography component={Link} href="/dashboard">
+                      Dashboard
+                    </Typography>
+                  )}
                   <Divider
                     orientation="vertical"
                     variant="fullWidth"
@@ -84,9 +89,28 @@ const Navbar = () => {
                     alignItems="center"
                     gap={2}
                   >
-                    <Box component={Link} href="/login">
-                      <LogIn className=" cursor-pointer" size={25} />
-                    </Box>
+                    {token ? (
+                      <Box>
+                        <Button
+                          onClick={() => dispatch(logoutUser())}
+                          sx={{
+                            width: "80px",
+                            padding: "4px 0",
+                            marginLeft: "5px",
+                            backgroundColor: "#EF4444",
+                            "&:hover": {
+                              backgroundColor: "#EF4444",
+                            },
+                          }}
+                        >
+                          Logout
+                        </Button>
+                      </Box>
+                    ) : (
+                      <Box component={Link} href="/login">
+                        <LogIn className=" cursor-pointer" size={25} />
+                      </Box>
+                    )}
                     <Badge
                       badgeContent={0}
                       color="primary"
@@ -156,12 +180,14 @@ const Navbar = () => {
                           Contact Us
                         </Typography>
                       </Box>
-                      <Box display="flex">
-                        <LayoutDashboard size={20} className="mr-1" />
-                        <Typography component={Link} href="/dashboard">
-                          Dashboard
-                        </Typography>
-                      </Box>
+                      {token && (
+                        <Box display="flex">
+                          <LayoutDashboard size={20} className="mr-1" />
+                          <Typography component={Link} href="/dashboard">
+                            Dashboard
+                          </Typography>
+                        </Box>
+                      )}
                     </Box>
                     <Divider
                       orientation="horizontal"
@@ -179,9 +205,28 @@ const Navbar = () => {
                       alignItems="center"
                       gap={2}
                     >
-                      <Box component={Link} href="/login">
-                        <LogIn className=" cursor-pointer" size={25} />
-                      </Box>
+                      {token ? (
+                        <Box>
+                          <Button
+                            onClick={() => dispatch(logoutUser())}
+                            sx={{
+                              width: "80px",
+                              padding: "4px 0",
+                              marginLeft: "5px",
+                              backgroundColor: "#EF4444",
+                              "&:hover": {
+                                backgroundColor: "#EF4444",
+                              },
+                            }}
+                          >
+                            Logout
+                          </Button>
+                        </Box>
+                      ) : (
+                        <Box component={Link} href="/login">
+                          <LogIn className=" cursor-pointer" size={25} />
+                        </Box>
+                      )}
                       <Badge
                         badgeContent={0}
                         color="info"
