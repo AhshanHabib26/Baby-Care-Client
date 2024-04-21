@@ -1,11 +1,34 @@
+"use client";
+
 import { Box, Stack, Typography, Button } from "@mui/material";
 import Logo from "../../../assets/icons/logo.png";
 import Image from "next/image";
 import Link from "next/link";
 import BCFormProvider from "@/Form/BCFormProvider";
 import BCFormInput from "@/Form/BCFormInput";
+import { FieldValues, useForm } from "react-hook-form";
+import { UserRegister } from "@/utils/Actions/UserRegister";
+import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 const RegisterPage = () => {
+  const router = useRouter();
+
+  const handleRegister = async (values: FieldValues) => {
+    try {
+      const res = await UserRegister(values);
+      // console.log(res);
+      if (res?.success) {
+        toast.success(res?.message);
+        router.push("/login");
+      } else if (!res?.success) {
+        toast.error(res.message);
+      }
+    } catch (err: any) {
+      console.log(err);
+    }
+  };
+
   return (
     <div>
       <Stack
@@ -51,9 +74,9 @@ const RegisterPage = () => {
           </Box>
 
           <Box>
-            <BCFormProvider>
+            <BCFormProvider onSubmit={handleRegister}>
               <BCFormInput
-                name="name"
+                name="username"
                 label="Full Name"
                 required
                 type="text"
@@ -113,7 +136,11 @@ const RegisterPage = () => {
               </Button>
 
               <Stack display="flex" alignItems="center" justifyItems="center">
-                <Box sx={{ color: "#EF4444", fontSize: "18px"}} component={Link} href="/login">
+                <Box
+                  sx={{ color: "#EF4444", fontSize: "18px" }}
+                  component={Link}
+                  href="/login"
+                >
                   Already have an account?
                 </Box>
               </Stack>
