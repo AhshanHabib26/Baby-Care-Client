@@ -11,6 +11,7 @@ import {
 } from "@mui/material";
 import ClearIcon from "@mui/icons-material/Clear";
 import { useState } from "react";
+import Link from "next/link";
 const cartItem = [
   {
     title: "Baby Diapers Pack",
@@ -168,6 +169,8 @@ const CheckoutTotal = () => {
         </Tooltip>
       </Box>
       <Box
+        component={Link}
+        href="/checkout/order-recieved"
         sx={{ display: "flex", justifyContent: "center", marginTop: "20px" }}
       >
         <Button
