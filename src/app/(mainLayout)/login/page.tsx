@@ -1,3 +1,5 @@
+"use client";
+
 import { Box, Stack, Typography, Button } from "@mui/material";
 import Logo from "../../../assets/icons/logo.png";
 import Image from "next/image";
@@ -6,8 +8,30 @@ import { FaFacebookF, FaGithub, FaLinkedinIn } from "react-icons/fa6";
 import Divider from "@mui/material/Divider";
 import BCFormProvider from "@/Form/BCFormProvider";
 import BCFormInput from "@/Form/BCFormInput";
+import { FieldValues } from "react-hook-form";
+import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
+import { userLogin } from "@/utils/Actions/userLogin";
 
 const LoginPage = () => {
+  const router = useRouter();
+
+  const handleLogin = async (values: FieldValues) => {
+    try {
+      const res = await userLogin(values);
+      // console.log(res);
+      if (res?.token) {
+        toast.success(res?.message);
+        localStorage.setItem("token", res?.token);
+        router.push("/dashboard");
+      } else if (!res?.success) {
+        toast.error(res.message);
+      }
+    } catch (err: any) {
+      console.log(err);
+    }
+  };
+
   return (
     <Stack
       sx={{
@@ -99,7 +123,7 @@ const LoginPage = () => {
         <Divider sx={{ marginBottom: "25px" }}>Or</Divider>
 
         <Box>
-          <BCFormProvider>
+          <BCFormProvider onSubmit={handleLogin}>
             <BCFormInput
               name="email"
               label="Email"

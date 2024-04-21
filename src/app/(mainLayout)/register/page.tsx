@@ -6,17 +6,17 @@ import Image from "next/image";
 import Link from "next/link";
 import BCFormProvider from "@/Form/BCFormProvider";
 import BCFormInput from "@/Form/BCFormInput";
-import { FieldValues, useForm } from "react-hook-form";
-import { UserRegister } from "@/utils/Actions/UserRegister";
+import { FieldValues } from "react-hook-form";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
+import { userRegister } from "@/utils/Actions/userRegister";
 
 const RegisterPage = () => {
   const router = useRouter();
 
   const handleRegister = async (values: FieldValues) => {
     try {
-      const res = await UserRegister(values);
+      const res = await userRegister(values);
       // console.log(res);
       if (res?.success) {
         toast.success(res?.message);

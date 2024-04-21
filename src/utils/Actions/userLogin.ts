@@ -1,7 +1,7 @@
 "use server";
 
-export const userRegister = async (data: any) => {
-  const res = await fetch("http://localhost:5000/api/v1/auth/register", {
+export const userLogin = async (data: any) => {
+  const res = await fetch("http://localhost:5000/api/v1/auth/login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -11,6 +11,6 @@ export const userRegister = async (data: any) => {
   });
 
   const userInfo = await res.json();
-  console.log(userInfo)
+
   return userInfo;
 };
