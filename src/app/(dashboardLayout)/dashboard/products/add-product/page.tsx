@@ -1,15 +1,13 @@
 import {
   Box,
-  Button,
   Container,
   Divider,
+  Typography,
+  Button,
   Grid,
   Stack,
-  TextareaAutosize,
   TextField,
-  Typography,
 } from "@mui/material";
-import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 const AddProductPage = () => {
   return (
     <Container>
@@ -17,66 +15,68 @@ const AddProductPage = () => {
         Add New Products
       </Typography>
       <Divider></Divider>
-      <Box sx={{ margin: "20px 0" }}>
-        <Grid container spacing={2} columns={{ xs: 4, sm: 8, md: 12 }}>
-          <Grid item xs={8}>
-            <TextField
-              type="text"
-              label="Product Title"
-              fullWidth
-              variant="outlined"
-              placeholder="Product Title"
-            />
+      <Box>
+        <Box sx={{ margin: "20px 0" }}>
+          <Grid container spacing={2} columns={{ xs: 4, sm: 8, md: 12 }}>
+            <Grid item xs={8}>
+              <TextField
+                type="text"
+                label="Product Title"
+                fullWidth
+                variant="outlined"
+                placeholder="Product Title"
+              />
+            </Grid>
+            <Grid item xs={4}>
+              <TextField
+                type="text"
+                label="Product Price"
+                placeholder="Product Price"
+                fullWidth
+                variant="outlined"
+              />
+            </Grid>
+            <Grid item xs={4}>
+              <TextField type="file" fullWidth variant="outlined" />
+            </Grid>
+            <Grid item xs={8}>
+              <TextField
+                type="text"
+                label="Product Model"
+                placeholder="Product Model"
+                fullWidth
+                variant="outlined"
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                type="text"
+                label="Product Description"
+                placeholder="Product Description"
+                fullWidth
+                multiline
+                rows={5}
+                variant="outlined"
+              />
+            </Grid>
           </Grid>
-          <Grid item xs={4}>
-            <TextField
-              type="text"
-              label="Product Price"
-              placeholder="Product Price"
-              fullWidth
-              variant="outlined"
-            />
-          </Grid>
-          <Grid item xs={4}>
-            <TextField type="file" fullWidth variant="outlined" />
-          </Grid>
-          <Grid item xs={8}>
-            <TextField
-              type="text"
-              label="Product Model"
-              placeholder="Product Model"
-              fullWidth
-              variant="outlined"
-            />
-          </Grid>
-          <Grid item xs={12}>
-            <TextField
-              type="text"
-              label="Product Description"
-              placeholder="Product Description"
-              fullWidth
-              multiline
-              rows={5}
-              variant="outlined"
-            />
-          </Grid>
-        </Grid>
-      </Box>
-      <Stack>
-        <Button
-          sx={{
-            width: "200px",
-            padding: "15px 0",
-            backgroundColor: "#EF4444",
-            "&:hover": {
+        </Box>
+        <Stack>
+          <Button
+            sx={{
+              width: "200px",
+              padding: "15px 0",
               backgroundColor: "#EF4444",
-            },
-          }}
-          variant="contained"
-        >
-          Add Products
-        </Button>
-      </Stack>
+              "&:hover": {
+                backgroundColor: "#EF4444",
+              },
+            }}
+            variant="contained"
+          >
+            Add Products
+          </Button>
+        </Stack>
+      </Box>
     </Container>
   );
 };

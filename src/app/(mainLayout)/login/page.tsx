@@ -12,20 +12,14 @@ import { FieldValues } from "react-hook-form";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 import { userLogin } from "@/utils/Actions/userLogin";
-import { tokenDecoder } from "@/utils/jwtDecode";
-import { useAppDispatch } from "@/redux/hooks";
-import { setUser } from "@/redux/features/auth/authSlice";
 
 const LoginPage = () => {
   const router = useRouter();
-  const dispatch = useAppDispatch();
   const handleLogin = async (values: FieldValues) => {
     try {
       const res = await userLogin(values);
       // console.log(res);
       if (res?.token) {
-        const user = tokenDecoder(res.token);
-        dispatch(setUser({ user: user, token: res?.token }));
         toast.success(res?.message, { id: "authId" });
         router.push("/");
       } else if (!res?.success) {

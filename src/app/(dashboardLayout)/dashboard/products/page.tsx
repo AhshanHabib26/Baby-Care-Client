@@ -8,7 +8,6 @@ import {
   TableHead,
   TableRow,
 } from "@mui/material";
-import React from "react";
 import Paper from "@mui/material/Paper";
 import Image from "next/image";
 import EditNoteIcon from "@mui/icons-material/EditNote";

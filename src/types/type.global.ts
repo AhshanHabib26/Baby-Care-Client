@@ -16,6 +16,15 @@ export interface IProduct {
   discount?: string;
 }
 
+export type TOrder = {
+  _id: string;
+  product: string;
+  price: string;
+  quantity: string;
+  payment: string;
+  status: string;
+};
+
 export type TUserRole = keyof typeof USER_ROLE;
 
 export interface IDrawerMenuItem {

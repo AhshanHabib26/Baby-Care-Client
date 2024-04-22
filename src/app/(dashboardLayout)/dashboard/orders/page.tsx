@@ -1,10 +1,8 @@
-import { getAllOrderData } from "@/data/OrderData";
 import {
   Container,
   Divider,
   Typography,
   Box,
-  Stack,
   Table,
   TableBody,
   TableCell,
@@ -16,9 +14,15 @@ import Paper from "@mui/material/Paper";
 import EditIcon from "@mui/icons-material/Edit";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import DeleteIcon from "@mui/icons-material/Delete";
-
-const OrderPage = () => {
-  const order = getAllOrderData();
+import { TOrder } from "@/types/type.global";
+const OrderPage = async () => {
+  const res = await fetch(
+    "https://baby-care-server-azure.vercel.app/api/v1/orders",
+    {
+      cache: "no-store",
+    }
+  );
+  const order = await res.json();
 
   return (
     <Container>
@@ -31,46 +35,43 @@ const OrderPage = () => {
           <Table sx={{ minWidth: 650 }} aria-label="simple table">
             <TableHead>
               <TableRow>
-                <TableCell>Product</TableCell>
                 <TableCell>Order ID</TableCell>
+                <TableCell>Product</TableCell>
                 <TableCell>Price</TableCell>
                 <TableCell>Quantity</TableCell>
                 <TableCell>Payment Type</TableCell>
                 <TableCell>Status</TableCell>
-                <TableCell>Tracking</TableCell>
                 <TableCell>Action</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
-              {order.map((item, index) => (
+              {order.data.map((item: TOrder) => (
                 <TableRow
-                  key={item.orderId}
+                  key={item._id}
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                 >
+                  <TableCell>{item._id}</TableCell>
                   <TableCell>{item.product}</TableCell>
-                  <TableCell>{item.orderId}</TableCell>
                   <TableCell>${item.price}</TableCell>
                   <TableCell>{item.quantity}</TableCell>
                   <TableCell>{item.payment}</TableCell>
                   <TableCell
                     style={{
                       color:
-                        item.status === "Shipped"
-                          ? "#45C560"
+                        item.status === "Pending"
+                          ? "#FF5733"
                           : item.status === "Delivered"
                           ? "#007bff"
-                          : item.status === "Processing"
-                          ? "#FF5733"
                           : "",
                     }}
                   >
                     {item.status}
                   </TableCell>
-
-                  <TableCell>{item.tracking}</TableCell>
                   <TableCell>
                     <VisibilityIcon sx={{ fontSize: 20, color: "#363636" }} />
-                    <EditIcon sx={{ fontSize: 20, color: "#007bff", mx: "5px" }} />
+                    <EditIcon
+                      sx={{ fontSize: 20, color: "#007bff", mx: "5px" }}
+                    />
                     <DeleteIcon sx={{ fontSize: 20, color: "#FE4444" }} />
                   </TableCell>
                 </TableRow>

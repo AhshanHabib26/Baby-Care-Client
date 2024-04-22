@@ -11,6 +11,7 @@ import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import { userRegister } from "@/utils/Actions/userRegister";
 
+
 const RegisterPage = () => {
   const router = useRouter();
 
