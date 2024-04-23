@@ -3,6 +3,8 @@ import { CirclePlus } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
+import InfoIcon from "@mui/icons-material/Info";
 
 const ProductsCard = ({ product }: any) => {
   return (
@@ -60,11 +62,16 @@ const ProductsCard = ({ product }: any) => {
               </p>
             </Box>
           )}
-          <Box>
+          <Stack display="flex" flexDirection="row">
+            <Box>
+              <AddShoppingCartIcon
+                sx={{ fontSize: 25, marginRight: "5px", color: "#EF4444" }}
+              />
+            </Box>
             <Link href={`/products/${product._id}`}>
-              <CirclePlus size={18} />
+              <InfoIcon sx={{ fontSize: 25, color: "#0C1734" }} />
             </Link>
-          </Box>
+          </Stack>
         </Stack>
       </Box>
     </Stack>

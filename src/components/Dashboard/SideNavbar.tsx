@@ -1,5 +1,6 @@
+"use client";
+
 import { Box, Typography } from "@mui/material";
-import React from "react";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
@@ -14,6 +15,7 @@ import { usePathname } from "next/navigation";
 
 const SideNavbar = () => {
   const currPathName = usePathname();
+
   const drawer = (
     <div>
       <List>
