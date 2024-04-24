@@ -3,7 +3,9 @@ import CartTotals from "@/components/CartItem/CartTotals";
 import { Box, Container, Grid } from "@mui/material";
 import React from "react";
 
-const CartPage = () => {
+const CartPage =  () => {
+  
+
   return (
     <Container>
       <Box marginTop={5}>

@@ -1,10 +1,10 @@
 import { Box, Stack, Typography } from "@mui/material";
-import { CirclePlus } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
+
 import InfoIcon from "@mui/icons-material/Info";
+import CartButton from "./CartButton";
 
 const ProductsCard = ({ product }: any) => {
   return (
@@ -64,9 +64,7 @@ const ProductsCard = ({ product }: any) => {
           )}
           <Stack display="flex" flexDirection="row">
             <Box>
-              <AddShoppingCartIcon
-                sx={{ fontSize: 25, marginRight: "5px", color: "#EF4444" }}
-              />
+              <CartButton product={product} />
             </Box>
             <Link href={`/products/${product._id}`}>
               <InfoIcon sx={{ fontSize: 25, color: "#0C1734" }} />

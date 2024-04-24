@@ -1,9 +1,27 @@
-"use client";
+"use client"
 
+import { useCureentCartData } from "@/redux/features/cart/cartSlice";
+import { useAppSelector } from "@/redux/hooks";
 import { Box, Button, Divider, Stack, Typography } from "@mui/material";
 import Link from "next/link";
 
 const CartTotals = () => {
+  const cartData = useAppSelector(useCureentCartData);
+
+  const subTotal = cartData.reduce((total, item) => {
+    const price = parseFloat(item.price);
+    const quantity = typeof item.quantity === "number" ? item.quantity : 0;
+    if (!isNaN(price)) {
+      return total + price * quantity;
+    }
+    return total;
+  }, 0);
+
+  
+  const fixedSubTotal = subTotal.toFixed(2);
+  const shippingRate = 15;
+  const totalAmount = (subTotal + shippingRate).toFixed(2);
+
   return (
     <Box
       sx={{
@@ -15,7 +33,7 @@ const CartTotals = () => {
       <Typography sx={{ fontSize: "22px", fontWeight: "600" }}>
         Cart Totals
       </Typography>
-      <Divider></Divider>
+      <Divider />
       <Stack
         sx={{
           display: "flex",
@@ -27,7 +45,7 @@ const CartTotals = () => {
       >
         <Typography>Subtotal</Typography>
         <Typography fontSize="18px" fontWeight={600}>
-          188.55 TK
+          {fixedSubTotal} TK
         </Typography>
       </Stack>
       <Stack
@@ -41,7 +59,7 @@ const CartTotals = () => {
       >
         <Typography>Estimated Shipping</Typography>
         <Typography fontSize="18px" fontWeight={600}>
-          15TK
+          {shippingRate} TK
         </Typography>
       </Stack>
       <Stack
@@ -55,7 +73,7 @@ const CartTotals = () => {
       >
         <Typography>Estimated Total</Typography>
         <Typography fontSize="18px" fontWeight={600}>
-          250.63 TK
+          {totalAmount} TK
         </Typography>
       </Stack>
       <Box

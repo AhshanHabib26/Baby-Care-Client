@@ -1,3 +1,5 @@
+"use client";
+
 import * as React from "react";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -6,61 +8,27 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import CloseIcon from "@mui/icons-material/Close";
 import Image from "next/image";
 import { Box, Button, Stack, TextField, Typography } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
-
-const cartItem = [
-  {
-    title: "Baby Diapers Pack",
-    price: "15.99",
-    ratings: "4.5",
-    brand: "Pampers",
-    category: "Diapers",
-    image: "https://i.ibb.co/BjzHLNs/Daipers-One.jpg",
-    description:
-      "Keep your baby comfortable and dry with these high-quality diapers from Pampers. Designed with soft materials and excellent absorption, ensuring a peaceful sleep for your little one.",
-    flashSale: true,
-    flashSaleOffer: "12.99",
-    discount: "20%",
-    quantity: "1",
-  },
-  {
-    title: "Baby Bottle Set",
-    price: "19.99",
-    ratings: "4.7",
-    brand: "Philips Avent",
-    category: "Accessories",
-    image: "https://i.ibb.co/JtKHZ10/Bootle-Set.jpg",
-    description:
-      "This set includes everything you need for feeding your baby. Made with BPA-free materials and an anti-colic system, these bottles are gentle on your baby's delicate tummy.",
-    flashSale: false,
-    quantity: "2",
-  },
-  {
-    title: "Baby Bottle Set",
-    price: "19.99",
-    ratings: "4.7",
-    brand: "Philips Avent",
-    category: "Accessories",
-    image: "https://i.ibb.co/JtKHZ10/Bootle-Set.jpg",
-    description:
-      "This set includes everything you need for feeding your baby. Made with BPA-free materials and an anti-colic system, these bottles are gentle on your baby's delicate tummy.",
-    flashSale: false,
-    quantity: "2",
-  },
-];
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import {
+  addToCart,
+  removeFromCart,
+  useCureentCartData,
+} from "@/redux/features/cart/cartSlice";
 
 const CartItem = () => {
+  const cartData = useAppSelector(useCureentCartData);
+  const dispatch = useAppDispatch();
+
   return (
     <Box>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 400 }} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell sx={{ fontWeight: "600" }}>Action</TableCell>
               <TableCell sx={{ fontWeight: "600" }}>Product</TableCell>
               <TableCell sx={{ fontWeight: "600" }}>Price</TableCell>
               <TableCell sx={{ fontWeight: "600" }}>Quantity</TableCell>
@@ -68,14 +36,11 @@ const CartItem = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {cartItem.map((item, index) => (
+            {cartData.map((item, index) => (
               <TableRow
                 key={index}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
-                <TableCell>
-                  <CloseIcon sx={{ fontSize: 20 }} />
-                </TableCell>
                 <TableCell>
                   <Stack display="flex" flexDirection="row" alignItems="center">
                     <Image
@@ -84,10 +49,12 @@ const CartItem = () => {
                       height={60}
                       alt="Product Image"
                     />
-                    <Typography fontSize={16}>{item.title}</Typography>
+                    <Typography fontSize={16} marginLeft={1}>
+                      {item.title}
+                    </Typography>
                   </Stack>
                 </TableCell>
-                <TableCell>{item.price}</TableCell>
+                <TableCell>{item.price} TK</TableCell>
                 <TableCell>
                   <Stack
                     sx={{
@@ -101,16 +68,24 @@ const CartItem = () => {
                       borderRadius: "5px",
                     }}
                   >
-                    <Box>
+                    <Box
+                      component="button"
+                      onClick={() => dispatch(addToCart(item))}
+                    >
                       <AddIcon sx={{ fontSize: 20, cursor: "pointer" }} />
                     </Box>
                     {item.quantity}
-                    <Box>
+                    <Box
+                      component="button"
+                      onClick={() => dispatch(removeFromCart(item._id))}
+                    >
                       <RemoveIcon sx={{ fontSize: 20, cursor: "pointer" }} />
                     </Box>
                   </Stack>
                 </TableCell>
-                <TableCell>{item.price}</TableCell>
+                <TableCell>
+                  {(parseFloat(item.price) * item.quantity).toFixed(2)} TK
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>

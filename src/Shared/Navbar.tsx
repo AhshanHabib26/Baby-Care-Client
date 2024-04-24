@@ -28,11 +28,14 @@ import {
 } from "lucide-react";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { logoutUser, useCureentToken } from "@/redux/features/auth/authSlice";
+import { useCureentCartData } from "@/redux/features/cart/cartSlice";
 
 const Navbar = () => {
   const [open, setOpen] = React.useState(false);
   const token = useAppSelector(useCureentToken);
+  const cartData = useAppSelector(useCureentCartData);
   const dispatch = useAppDispatch();
+
   const toggleDrawer = (newOpen: boolean) => () => {
     setOpen(newOpen);
   };
@@ -122,7 +125,7 @@ const Navbar = () => {
                       <Heart className=" cursor-pointer " size={25} />
                     </Badge>
                     <Badge
-                      badgeContent={0}
+                      badgeContent={cartData?.length}
                       color="primary"
                       sx={{ userSelect: "none" }}
                       showZero
