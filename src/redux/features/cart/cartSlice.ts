@@ -36,18 +36,24 @@ const cartSlice = createSlice({
       }
     },
     removeFromCart: (state, action) => {
-        const index = state.cart.findIndex(product => product._id === action.payload);
-        if (index !== -1) {
-            if (state.cart[index].quantity && state.cart[index].quantity > 1) {
-                state.cart[index].quantity -= 1;
-            } else {
-                state.cart.splice(index, 1);
-            }
+      const index = state.cart.findIndex(
+        (product) => product._id === action.payload
+      );
+      if (index !== -1) {
+        if (state.cart[index].quantity && state.cart[index].quantity > 1) {
+          state.cart[index].quantity -= 1;
+        } else {
+          state.cart.splice(index, 1);
         }
+      }
+    },
+    removeAllDataFromCart: (state, action) => {
+      state.cart = [];
     },
   },
 });
 
-export const { addToCart, removeFromCart } = cartSlice.actions;
+export const { addToCart, removeFromCart, removeAllDataFromCart } =
+  cartSlice.actions;
 export default cartSlice.reducer;
 export const useCureentCartData = (state: RootState) => state.cart.cart;

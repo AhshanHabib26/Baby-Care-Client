@@ -1,3 +1,7 @@
+"use client";
+
+import { addToCart } from "@/redux/features/cart/cartSlice";
+import { useAppDispatch } from "@/redux/hooks";
 import SocialIcons from "@/Shared/SocialIons";
 import { IProduct } from "@/types/type.global";
 import { Box, Button, Stack, Typography } from "@mui/material";
@@ -9,6 +13,8 @@ type TProductProps = {
 };
 
 const ProductSideInfo: React.FC<TProductProps> = ({ product }) => {
+  const dispatch = useAppDispatch();
+
   return (
     <Stack>
       <span className="text-md font-regular text-[#0C1734] inline-block">
@@ -63,7 +69,7 @@ const ProductSideInfo: React.FC<TProductProps> = ({ product }) => {
           <h1 className="text-lg font-semibold mx-5">0</h1>
           <Plus color="#363636" size={20} />
         </Box>
-        <Box>
+        <Box component="button" onClick={() => dispatch(addToCart(product))}>
           <Button size="large">Add to Cart </Button>
         </Box>
       </Stack>

@@ -15,6 +15,7 @@ import RemoveIcon from "@mui/icons-material/Remove";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import {
   addToCart,
+  removeAllDataFromCart,
   removeFromCart,
   useCureentCartData,
 } from "@/redux/features/cart/cartSlice";
@@ -122,20 +123,23 @@ const CartItem = () => {
             Apply Coupon
           </Button>
         </Stack>
-        <Button
+        <Box
+          component="button"
+          onClick={() => dispatch(removeAllDataFromCart(""))}
           sx={{
             width: "150px",
             padding: "15px 0",
             marginLeft: "5px",
+            color: "#fff",
+            borderRadius: "5px",
             backgroundColor: "#0C1734",
             "&:hover": {
               backgroundColor: "#0C1734",
             },
           }}
-          variant="contained"
         >
           Empty Cart
-        </Button>
+        </Box>
       </Stack>
     </Box>
   );
