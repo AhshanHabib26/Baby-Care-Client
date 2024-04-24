@@ -4,7 +4,7 @@ import CartItem from "@/components/CartItem/CartItem";
 import CartTotals from "@/components/CartItem/CartTotals";
 import { useCureentCartData } from "@/redux/features/cart/cartSlice";
 import { useAppSelector } from "@/redux/hooks";
-import { Box, Button, Container, Grid, Stack, Typography } from "@mui/material";
+import { Box,  Container, Grid, Stack, Typography } from "@mui/material";
 import React from "react";
 import RemoveShoppingCartIcon from "@mui/icons-material/RemoveShoppingCart";
 import Link from "next/link";

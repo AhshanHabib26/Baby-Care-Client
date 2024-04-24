@@ -1,3 +1,4 @@
+"use client";
 import BillingDetails from "@/components/Checkout/BillingDetails";
 import CheckoutTotal from "@/components/Checkout/CheckoutTotal";
 import Info from "@/components/Checkout/Info";

@@ -1,5 +1,6 @@
-"use client"
+"use client";
 
+import { useCureentToken } from "@/redux/features/auth/authSlice";
 import { useCureentCartData } from "@/redux/features/cart/cartSlice";
 import { useAppSelector } from "@/redux/hooks";
 import { Box, Button, Divider, Stack, Typography } from "@mui/material";
@@ -7,6 +8,7 @@ import Link from "next/link";
 
 const CartTotals = () => {
   const cartData = useAppSelector(useCureentCartData);
+  const token = useAppSelector(useCureentToken);
 
   const subTotal = cartData.reduce((total, item) => {
     const price = parseFloat(item.price);
@@ -17,7 +19,6 @@ const CartTotals = () => {
     return total;
   }, 0);
 
-  
   const fixedSubTotal = subTotal.toFixed(2);
   const shippingRate = 15;
   const totalAmount = (subTotal + shippingRate).toFixed(2);
@@ -76,25 +77,47 @@ const CartTotals = () => {
           {totalAmount} TK
         </Typography>
       </Stack>
-      <Box
-        component={Link}
-        href="/checkout"
-        sx={{ display: "flex", justifyContent: "center", marginTop: "20px" }}
-      >
-        <Button
-          fullWidth
-          sx={{
-            padding: "12px 0",
-            backgroundColor: "#EF4444",
-            "&:hover": {
-              backgroundColor: "#EF4444",
-            },
-          }}
-          variant="contained"
+      {token ? (
+        <Box
+          component={Link}
+          href="/checkout"
+          sx={{ display: "flex", justifyContent: "center", marginTop: "20px" }}
         >
-          Proceed to Checkout
-        </Button>
-      </Box>
+          <Button
+            fullWidth
+            sx={{
+              padding: "12px 0",
+              backgroundColor: "#EF4444",
+              "&:hover": {
+                backgroundColor: "#EF4444",
+              },
+            }}
+            variant="contained"
+          >
+            Proceed to Checkout
+          </Button>
+        </Box>
+      ) : (
+        <Box
+          component={Link}
+          href="/login"
+          sx={{ display: "flex", justifyContent: "center", marginTop: "20px" }}
+        >
+          <Button
+            fullWidth
+            sx={{
+              padding: "12px 0",
+              backgroundColor: "#EF4444",
+              "&:hover": {
+                backgroundColor: "#EF4444",
+              },
+            }}
+            variant="contained"
+          >
+            Proceed to Checkout
+          </Button>
+        </Box>
+      )}
     </Box>
   );
 };
