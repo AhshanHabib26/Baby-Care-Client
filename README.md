@@ -10,6 +10,7 @@
 ### Project Details (Frontend)
 
 - Main Menu
+
   - Brand Logo
   - Home
   - Products
@@ -30,7 +31,13 @@
   - Footer
 
 * Dashboard Section
+* Dashboard (For User)
+  - Dashboard
+  - My Order
+* Dashboard (For Admin)
+  - Dashboard
   - All Products
-  - Back To Home
+  - Add Product
+  - All Orders
 
 ### This Website Totally User Friendly and Fully Responsive, Please review this awesome projects and feel free and give your opinion Or any suggestions. Really, it's my pleasure.
