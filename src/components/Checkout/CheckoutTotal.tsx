@@ -1,4 +1,3 @@
-"use client";
 import {
   Box,
   Button,
@@ -10,50 +9,26 @@ import {
   Typography,
 } from "@mui/material";
 import ClearIcon from "@mui/icons-material/Clear";
-import { useState } from "react";
 import Link from "next/link";
-const cartItem = [
-  {
-    title: "Baby Diapers Pack",
-    price: "15.99",
-    ratings: "4.5",
-    brand: "Pampers",
-    category: "Diapers",
-    image: "https://i.ibb.co/BjzHLNs/Daipers-One.jpg",
-    description:
-      "Keep your baby comfortable and dry with these high-quality diapers from Pampers. Designed with soft materials and excellent absorption, ensuring a peaceful sleep for your little one.",
-    flashSale: true,
-    flashSaleOffer: "12.99",
-    discount: "20%",
-    quantity: "1",
-  },
-  {
-    title: "Baby Bottle Set",
-    price: "19.99",
-    ratings: "4.7",
-    brand: "Philips Avent",
-    category: "Accessories",
-    image: "https://i.ibb.co/JtKHZ10/Bootle-Set.jpg",
-    description:
-      "This set includes everything you need for feeding your baby. Made with BPA-free materials and an anti-colic system, these bottles are gentle on your baby's delicate tummy.",
-    flashSale: false,
-    quantity: "2",
-  },
-  {
-    title: "Baby Bottle Set",
-    price: "19.99",
-    ratings: "4.7",
-    brand: "Philips Avent",
-    category: "Accessories",
-    image: "https://i.ibb.co/JtKHZ10/Bootle-Set.jpg",
-    description:
-      "This set includes everything you need for feeding your baby. Made with BPA-free materials and an anti-colic system, these bottles are gentle on your baby's delicate tummy.",
-    flashSale: false,
-    quantity: "2",
-  },
-];
+import { useCureentCartData } from "@/redux/features/cart/cartSlice";
+import { useAppSelector } from "@/redux/hooks";
 
 const CheckoutTotal = () => {
+  const cartData = useAppSelector(useCureentCartData);
+
+  const subTotal = cartData.reduce((total, item) => {
+    const price = parseFloat(item.price);
+    const quantity = typeof item.quantity === "number" ? item.quantity : 0;
+    if (!isNaN(price)) {
+      return total + price * quantity;
+    }
+    return total;
+  }, 0);
+
+  const fixedSubTotal = subTotal.toFixed(2);
+  const shippingRate = 15;
+  const totalAmount = (subTotal + shippingRate).toFixed(2);
+
   return (
     <Box
       sx={{
@@ -78,7 +53,7 @@ const CheckoutTotal = () => {
       </Stack>
       <Divider></Divider>
       <Box>
-        {cartItem.map((item, index) => (
+        {cartData.map((item, index) => (
           <Stack
             key={index}
             sx={{
@@ -118,7 +93,10 @@ const CheckoutTotal = () => {
                 </Box>
               </Box>
               <Box>
-                <Typography fontWeight={600}>{item.price}</Typography>
+                <Typography fontWeight={600}>
+                  {" "}
+                  {(parseFloat(item.price) * item.quantity).toFixed(2)} TK
+                </Typography>
               </Box>
             </Box>
           </Stack>
@@ -132,7 +110,7 @@ const CheckoutTotal = () => {
           }}
         >
           <Typography fontWeight={600}>Subtotal</Typography>
-          <Typography fontWeight={600}>350.89 TK</Typography>
+          <Typography fontWeight={600}>{fixedSubTotal} TK</Typography>
         </Box>
       </Box>
       <Stack
@@ -157,7 +135,7 @@ const CheckoutTotal = () => {
         }}
       >
         <Typography>Total</Typography>
-        <Typography fontWeight={600}>365.89 TK</Typography>
+        <Typography fontWeight={600}>{totalAmount} TK</Typography>
       </Stack>
       <Box>
         <Tooltip title="Pay with cash upon delivery." arrow placement="top-end">
