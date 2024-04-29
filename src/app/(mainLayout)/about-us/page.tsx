@@ -1,10 +1,12 @@
+import AboutUsBanner from "@/components/AboutUs/AboutUsBanner";
+import { Container } from "@mui/material";
 import React from "react";
 
 const AboutPage = () => {
   return (
-    <div className="min-h-screen">
-      <h1>About Us Page</h1>
-    </div>
+    <Container sx={{ marginTop: 5}}>
+      <AboutUsBanner />
+    </Container>
   );
 };
 
